@@ -11,11 +11,20 @@ namespace hot_demo.queries
            "C# in depth.",
                 new Author("Jon Skeet")
                );
-        public Book GetBook() =>
-          book;
+
+        IEnumerable<Book> books = new List<Book>() { new Book(1,
+           "C# in depth.",
+                new Author("Jon Skeet")
+               ),
+               new Book(2,
+           "D# in depth.",
+                new Author("Jon Amir")
+               ) };
+        public Book GetBook(int id) =>
+          books.FirstOrDefault(item => item.Id == id);
 
         public IEnumerable<Book> GetBooks() =>
-            new List<Book>() { book };
+          books;
 
     }
 
