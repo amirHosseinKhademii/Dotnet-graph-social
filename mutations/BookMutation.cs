@@ -13,8 +13,8 @@ namespace hot_demo.mutations
 
         }
 
-        public Book CreateBook(string title) => _service.CreateBook(title);
+        // public Book CreateBook(string title) => _service.CreateBook(title);
 
-        public Guid DeleteBook(Guid id) => _service.DeleteBook(id);
+        // public Guid DeleteBook(Guid id) => _service.DeleteBook(id);
     }
 }

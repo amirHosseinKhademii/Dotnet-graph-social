@@ -15,11 +15,11 @@ namespace hot_demo.queries
 
         }
 
-        public Book GetBook(Guid id) =>
-          _service.GetBook(id);
+        // public Book GetBook(Guid id) =>
+        //   _service.GetBook(id);
 
-        public IEnumerable<Book> GetBooks() =>
-         _service.GetBooks();
+        public async Task<List<Book>> GetBooks() =>
+         await _service.GetAsync();
 
     }
 

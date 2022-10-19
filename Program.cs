@@ -2,12 +2,19 @@ using hot_demo.mutations;
 using hot_demo.queries;
 using hot_demo.repositories;
 using hot_demo.services;
+using hot_demo.types;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// Add services to the container.
+builder.Services.Configure<MongoDBSetting>(
+    builder.Configuration.GetSection("DataBase"));
+
 builder.Services.AddSingleton<BookRepository>().AddSingleton<BookService>()
     .AddGraphQLServer()
-    .AddQueryType<BookQuery>().AddMutationType<BookMutation>();
+    .AddQueryType<BookQuery>();
+//.AddMutationType<BookMutation>();
 
 var app = builder.Build();
 
