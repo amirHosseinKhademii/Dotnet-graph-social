@@ -1,8 +1,9 @@
 using hot_demo.queries;
+using hot_demo.repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services
+builder.Services.AddSingleton<BookRepository>()
     .AddGraphQLServer()
     .AddQueryType<BookQuery>();
 

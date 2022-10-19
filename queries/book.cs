@@ -1,30 +1,24 @@
 
 
+using hot_demo.repositories;
 using hot_demo.types;
 
 namespace hot_demo.queries
 {
-
     public class BookQuery
     {
-        Book book = new Book(1,
-           "C# in depth.",
-                new Author("Jon Skeet")
-               );
+        private readonly BookRepository repo;
+        public BookQuery(BookRepository repo)
+        {
+            this.repo = repo;
 
-        IEnumerable<Book> books = new List<Book>() { new Book(1,
-           "C# in depth.",
-                new Author("Jon Skeet")
-               ),
-               new Book(2,
-           "D# in depth.",
-                new Author("Jon Amir")
-               ) };
+        }
+
         public Book GetBook(int id) =>
-          books.FirstOrDefault(item => item.Id == id);
+          repo.books.FirstOrDefault(item => item.Id == id);
 
         public IEnumerable<Book> GetBooks() =>
-          books;
+          repo.books;
 
     }
 
