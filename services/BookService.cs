@@ -1,5 +1,6 @@
 
 using hot_demo.types;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -26,7 +27,6 @@ namespace hot_demo.services
         public async Task<Book?> GetByIdAsync(string id) =>
             await _booksCollection.Find(item => item.Id == id).FirstOrDefaultAsync();
 
-
         public async Task<Book> CreateAsync(string title)
         {
 
@@ -50,6 +50,15 @@ namespace hot_demo.services
 
             await _booksCollection.ReplaceOneAsync(x => x.Id == book.Id, book);
             return book;
+        }
+
+        public async Task<string> UpdateAuthorAsync(string id, string name)
+        {
+            var author = new Author() { Name = name };
+            var update = Builders<Book>.Update.Set(book => book.Author, author);
+            var filter = Builders<Book>.Filter.Where(item => item.Id == id);
+            await _booksCollection.UpdateOneAsync(filter, update);
+            return id;
         }
     }
 }

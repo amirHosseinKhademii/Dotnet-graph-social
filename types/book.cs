@@ -8,15 +8,15 @@ public record Book
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string? Id { get; set; }
+    public string? Id { get; init; }
 
-    public string Title { get; set; }
+    public string Title { get; init; }
 
-    public Author? Author { get; set; }
+    public Author? Author { get; init; }
 
 }
 
 public record Author
 {
-    public string Name { get; set; }
+    public string Name { get; init; }
 }
