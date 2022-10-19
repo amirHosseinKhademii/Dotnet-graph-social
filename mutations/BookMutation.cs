@@ -15,6 +15,8 @@ namespace hot_demo.mutations
 
         public async Task<Book> CreateBook(string title) => await _service.CreateAsync(title);
 
-        // public Guid DeleteBook(Guid id) => _service.DeleteBook(id);
+        public async Task<string> DeleteBook(string id) => await _service.RemoveAsync(id);
+
+        public async Task<Book> UpdateBook(Book book) => await _service.UpdateAsync(book);
     }
 }

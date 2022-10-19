@@ -9,13 +9,13 @@ namespace hot_demo.services
     {
         private readonly IMongoCollection<Book> _booksCollection;
         public BookService(
-         IOptions<MongoDBSetting> repo)
+         IOptions<MongoDBSetting> settings)
         {
             var mongoClient = new MongoClient(
-                repo.Value.ConnectionString);
+                settings.Value.ConnectionString);
 
             var mongoDatabase = mongoClient.GetDatabase(
-                repo.Value.DatabaseName);
+                settings.Value.DatabaseName);
 
             _booksCollection = mongoDatabase.GetCollection<Book>("Books");
         }
@@ -39,12 +39,17 @@ namespace hot_demo.services
 
         }
 
-        // public Guid DeleteBook(Guid id)
-        // {
-        //     _repo.books.RemoveAll(item => item.Id != id);
-        //     return id;
-        // }
+        public async Task<string> RemoveAsync(string id)
+        {
+            await _booksCollection.DeleteOneAsync(x => x.Id == id);
+            return id;
+        }
 
+        public async Task<Book> UpdateAsync(Book book)
+        {
 
+            await _booksCollection.ReplaceOneAsync(x => x.Id == book.Id, book);
+            return book;
+        }
     }
 }
