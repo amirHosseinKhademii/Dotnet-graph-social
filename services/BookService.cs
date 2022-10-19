@@ -25,5 +25,12 @@ namespace hot_demo.services
             return book;
         }
 
+        public Guid DeleteBook(Guid id)
+        {
+            _repo.books.RemoveAll(item => item.Id != id);
+            return id;
+        }
+
+
     }
 }
