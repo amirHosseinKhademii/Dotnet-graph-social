@@ -15,7 +15,7 @@ namespace hot_demo.queries
 
         }
 
-        public Book GetBook(int id) =>
+        public Book GetBook(Guid id) =>
           _service.GetBook(id);
 
         public IEnumerable<Book> GetBooks() =>
