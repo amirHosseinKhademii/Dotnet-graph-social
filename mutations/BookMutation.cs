@@ -13,7 +13,7 @@ namespace hot_demo.mutations
 
         }
 
-        // public Book CreateBook(string title) => _service.CreateBook(title);
+        public async Task<Book> CreateBook(string title) => await _service.CreateAsync(title);
 
         // public Guid DeleteBook(Guid id) => _service.DeleteBook(id);
     }

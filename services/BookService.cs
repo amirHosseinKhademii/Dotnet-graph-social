@@ -17,25 +17,27 @@ namespace hot_demo.services
             var mongoDatabase = mongoClient.GetDatabase(
                 repo.Value.DatabaseName);
 
-            _booksCollection = mongoDatabase.GetCollection<Book>(
-                repo.Value.BooksCollectionName);
+            _booksCollection = mongoDatabase.GetCollection<Book>("Books");
         }
 
         public async Task<List<Book>> GetAsync() =>
-     await _booksCollection.Find(_ => true).ToListAsync();
+            await _booksCollection.Find(_ => true).ToListAsync();
+
+        public async Task<Book?> GetByIdAsync(string id) =>
+            await _booksCollection.Find(item => item.Id == id).FirstOrDefaultAsync();
 
 
-        // public Book GetBook(Guid id) => _repo.books.FirstOrDefault(item => item.Id == id);
+        public async Task<Book> CreateAsync(string title)
+        {
 
-        // public IEnumerable<Book> GetBooks() => _repo.books;
+            var book = new Book()
+            {
+                Title = title
+            };
+            await _booksCollection.InsertOneAsync(book);
+            return book;
 
-        // public Book CreateBook(string title)
-        // {
-        //     var author = new Author("test");
-        //     var book = new Book(Guid.NewGuid(), title, author);
-        //     _repo.books.Add(book);
-        //     return book;
-        // }
+        }
 
         // public Guid DeleteBook(Guid id)
         // {

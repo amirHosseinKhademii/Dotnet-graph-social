@@ -15,8 +15,8 @@ namespace hot_demo.queries
 
         }
 
-        // public Book GetBook(Guid id) =>
-        //   _service.GetBook(id);
+        public async Task<Book> GetBook(string id) =>
+         await _service.GetByIdAsync(id);
 
         public async Task<List<Book>> GetBooks() =>
          await _service.GetAsync();
