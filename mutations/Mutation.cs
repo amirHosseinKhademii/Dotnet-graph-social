@@ -4,12 +4,10 @@ namespace hot_demo.mutations;
 
 public partial class Mutation
 {
-    private readonly UserService _userService;
-    private readonly BookService _bookService;
+    private readonly Service _service;
 
-    public Mutation(UserService userService, BookService bookService)
+    public Mutation(Service service)
     {
-        _userService = userService;
-        _bookService = bookService;
+        _service = service;
     }
 }

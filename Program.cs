@@ -13,8 +13,7 @@ builder.Services.Configure<MongoDBSetting>(
 
 builder.Services
     .AddSingleton<BookRepository>()
-    .AddSingleton<BookService>()
-    .AddSingleton<UserService>()
+    .AddSingleton<Service>()
     .AddGraphQLServer()
     .AddQueryType<Query>()
     .AddMutationType<Mutation>();

@@ -1,33 +1,22 @@
 using hot_demo.types;
-using Microsoft.Extensions.Options;
+using hot_demo.utils;
 using MongoDB.Driver;
 
 namespace hot_demo.services
 {
-    public class UserService
+    public partial class Service
     {
-        private readonly IMongoCollection<User> _userCollection;
-        public UserService(
-         IOptions<MongoDBSetting> settings)
+        public async Task<List<User>> GetUsersAsync() => await _userCollection.Find(_ => true).ToListAsync();
+
+        public async Task<User> CreateUserAsync(string email, string password)
         {
-            var mongoClient = new MongoClient(
-                settings.Value.ConnectionString);
-
-            var mongoDatabase = mongoClient.GetDatabase(
-                settings.Value.DatabaseName);
-
-            _userCollection = mongoDatabase.GetCollection<User>("Users");
-        }
-
-        public async Task<List<User>> GetAsync() => await _userCollection.Find(_ => true).ToListAsync();
-
-        public async Task<User> CreateAsync(string email ,string password)
-        {
+            var enPassowrd = Encript.EncodePassword(password);
             var user = new User()
             {
                 Email = email,
-                Password = password
+                Password = enPassowrd
             };
+
             await _userCollection.InsertOneAsync(user);
             return user;
         }

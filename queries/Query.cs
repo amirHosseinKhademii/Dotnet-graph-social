@@ -4,12 +4,10 @@ namespace hot_demo.queries;
 
 public partial class Query
 {
-    private readonly UserService _userService;
-    private readonly BookService _bookService;
+    private readonly Service _service;
 
-    public Query(UserService userService, BookService bookService)
+    public Query(Service service)
     {
-        _userService = userService;
-        _bookService = bookService;
+        _service = service;
     }
 }

@@ -4,6 +4,6 @@ namespace hot_demo.queries
 {
     public partial class Query
     {
-        public async Task<List<User>> GetUsers() => await _userService.GetAsync();
+        public async Task<List<User>> GetUsers() => await _service.GetUsersAsync();
     }
 }
