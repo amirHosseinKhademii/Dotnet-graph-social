@@ -17,10 +17,8 @@ builder.Services
     .AddSingleton<UserService>()
     .AddGraphQLServer()
     .AddQueryType<Query>()
+    .AddMutationType<Mutation>();
 
-    .AddMutationType(q => q.Name("Mutation"))
-    .AddType<BookMutation>()
-    .AddType<UserMutation>();
 
 var app = builder.Build();
 
