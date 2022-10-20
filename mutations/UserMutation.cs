@@ -4,21 +4,18 @@ using hot_demo.types;
 
 namespace hot_demo.mutations
 {
+    [ExtendObjectType("Mutation")]
     public class UserMutation
     {
-        private readonly BookService _service;
-        public UserMutation(BookService service)
+        private readonly UserService _service;
+        public UserMutation(UserService service)
         {
             _service = service;
 
         }
 
-        public async Task<Book> CreateBook(string title) => await _service.CreateAsync(title);
+        public async Task<User> CreateBook(string email,string password) => await _service.CreateAsync(email,password);
 
-        public async Task<string> DeleteBook(string id) => await _service.RemoveAsync(id);
 
-        public async Task<Book> UpdateBook(Book book) => await _service.UpdateAsync(book);
-
-        public async Task<string> UpdateAuthor(string id, string author) => await _service.UpdateAuthorAsync(id, author);
     }
 }

@@ -20,6 +20,17 @@ namespace hot_demo.services
         }
 
         public async Task<List<User>> GetAsync() => await _userCollection.Find(_ => true).ToListAsync();
+
+        public async Task<User> CreateAsync(string email ,string password)
+        {
+            var user = new User()
+            {
+                Email = email,
+                Password = password
+            };
+            await _userCollection.InsertOneAsync(user);
+            return user;
+        }
     }
 }
 

@@ -4,6 +4,7 @@ using hot_demo.types;
 
 namespace hot_demo.mutations
 {
+    [ExtendObjectType("Mutation")]
     public class BookMutation
     {
         private readonly BookService _service;
