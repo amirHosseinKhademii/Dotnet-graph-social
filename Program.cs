@@ -11,9 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<MongoDBSetting>(
     builder.Configuration.GetSection("DataBase"));
 
-builder.Services.AddSingleton<BookRepository>().AddSingleton<BookService>()
+builder.Services
+    .AddSingleton<BookRepository>()
+    .AddSingleton<BookService>()
+    .AddSingleton<UserService>()
     .AddGraphQLServer()
-    .AddQueryType<BookQuery>()
+    .AddQueryType(q => q.Name("Query"))
+    .AddType<BookQuery>()
+    .AddType<UserQuery>()
     .AddMutationType<BookMutation>();
 
 var app = builder.Build();

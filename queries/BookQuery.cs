@@ -6,6 +6,7 @@ using hot_demo.types;
 
 namespace hot_demo.queries
 {
+    [ExtendObjectType("Query")]
     public class BookQuery
     {
         private readonly BookService _service;
