@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace hot_demo.types
 {
-    public record User()
+    public record User
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -12,7 +12,5 @@ namespace hot_demo.types
         public string Email { get; init; }
 
         public string Password { get; init; }
-
     }
-
 }

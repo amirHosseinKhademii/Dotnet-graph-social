@@ -1,7 +1,3 @@
-
-
-
-
 using hot_demo.types;
 
 namespace hot_demo.queries
