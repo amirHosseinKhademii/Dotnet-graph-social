@@ -1,10 +1,11 @@
 
+using hot_demo.interfaces.services;
 using hot_demo.types;
 using MongoDB.Driver;
 
 namespace hot_demo.services
 {
-    public partial class Service
+    public partial class Service : IBookService
     {
         public async Task<List<Book>> GetBooksAsync() =>
             await _booksCollection.Find(_ => true).ToListAsync();
