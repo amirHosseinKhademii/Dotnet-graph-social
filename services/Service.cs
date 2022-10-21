@@ -1,3 +1,4 @@
+using hot_demo.interfaces;
 using hot_demo.types;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
@@ -6,13 +7,15 @@ namespace hot_demo.services;
 
 public partial class Service
 {
+    private readonly IJwtAuthentication _jwtAuthentication;
     private readonly IMongoCollection<User> _userCollection;
     private readonly IMongoCollection<Book> _booksCollection;
     private readonly IMongoCollection<Todo> _todosCollection;
 
     public Service(
-        IOptions<MongoDBSetting> settings)
+        IOptions<MongoDBSetting> settings, IJwtAuthentication JwtAuthentication)
     {
+        _jwtAuthentication = JwtAuthentication;
         var mongoClient = new MongoClient(
             settings.Value.ConnectionString);
 

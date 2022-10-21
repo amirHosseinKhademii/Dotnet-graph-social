@@ -53,3 +53,12 @@
 /Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/runtimes/linux/native/libmongocrypt.so
 /Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/runtimes/osx/native/libmongocrypt.dylib
 /Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/runtimes/win/native/mongocrypt.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/System.Security.Permissions.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

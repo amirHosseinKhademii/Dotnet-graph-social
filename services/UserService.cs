@@ -20,6 +20,13 @@ namespace hot_demo.services
             await _userCollection.InsertOneAsync(user);
             return user;
         }
+
+        public async Task<string> SignInUserAsync(string email, string password)
+        {
+            var user = await _userCollection.Find(item => item.Email == email).FirstOrDefaultAsync();
+            if (user == null) new UnauthorizedAccessException();
+            return _jwtAuthentication.Authenticate(email);
+        }
     }
 }
 
