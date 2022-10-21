@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0R2w10OM3wKT4O3eWPmbM11WaLGyxglq/zhUAXTWi6IgB6N3L/zv2cHS8DM2tnSDxnnNLBjSwAXctEEF53uSvw==",
+  "dgSpecHash": "rAc7lY5b5/rt7ZpnI2HaZSAmAI66Cz0T16PjYsDP0N8n9UNgNJ6E2F58XtjlTTln0Pe5IXv/MI0Wq7uJke2r0w==",
   "success": true,
   "projectFilePath": "/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/hot-demo.csproj",
   "expectedPackageFiles": [
+    "/Users/amirhosseinkhademi/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/amirhosseinkhademi/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/Users/amirhosseinkhademi/.nuget/packages/greendonut/12.15.0/greendonut.12.15.0.nupkg.sha512",
     "/Users/amirhosseinkhademi/.nuget/packages/hotchocolate/12.15.0/hotchocolate.12.15.0.nupkg.sha512",
