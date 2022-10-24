@@ -63,3 +63,4 @@
 /Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
 /Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/BCrypt.Net-Next.dll
+/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/bin/Debug/net6.0/HotChocolate.AspNetCore.Authorization.dll

@@ -1,3 +1,4 @@
+
 namespace hot_demo.types;
 
 using MongoDB.Bson;
