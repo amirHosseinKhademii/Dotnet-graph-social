@@ -12,6 +12,7 @@
           "HotChocolate.AspNetCore": "12.15.0",
           "Microsoft.AspNetCore.Authentication": "2.2.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.10",
+          "Microsoft.IdentityModel.Tokens": "6.24.0",
           "MongoDB.Driver": "2.18.0",
           "System.IdentityModel.Tokens.Jwt": "6.24.0"
         },

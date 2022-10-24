@@ -2,7 +2,6 @@ using System.Text;
 using hot_demo.interfaces;
 using hot_demo.mutations;
 using hot_demo.queries;
-using hot_demo.repositories;
 using hot_demo.services;
 using hot_demo.types;
 using hot_demo.utils;
@@ -12,31 +11,25 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddAuthentication(x =>
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(x =>
+{
+    x.TokenValidationParameters = new TokenValidationParameters
     {
-        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    }
-).AddJwtBearer(x =>
-    {
-        x.RequireHttpsMetadata = false;
-        x.SaveToken = true;
-        x.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("this is my custom Secret key for authentication")),
-            ValidateIssuer = false,
-            ValidateAudience = false
-        };
-    }
-);
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey =
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication")),
+    };
+});
 
 builder.Services.AddAuthorization();
+
 
 builder.Services.Configure<MongoDBSetting>(
         builder.Configuration.GetSection("DataBase"))
     .AddSingleton<IJwtAuthentication>(new JwtAuthentication("this is my custom Secret key for authentication"))
-    .AddSingleton<BookRepository>()
     .AddSingleton<Service>()
     .AddGraphQLServer()
     .AddQueryType<Query>()
@@ -44,8 +37,8 @@ builder.Services.Configure<MongoDBSetting>(
 
 var app = builder.Build();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapGraphQL();
 

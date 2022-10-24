@@ -15,21 +15,21 @@ public class JwtAuthentication : IJwtAuthentication
         _key = key;
     }
 
-    public string Authenticate(string email)
+    public string Authenticate(string id, string email)
     {
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_key));
+        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+        var claims = new Claim[]
+        {
+            new Claim(ClaimTypes.Sid, id),
+            new Claim(ClaimTypes.Name, email),
+        };
         var tokenHandler = new JwtSecurityTokenHandler();
-        var tokenKey = Encoding.ASCII.GetBytes(_key);
         var tokenDesc = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, email)
-                }
-            ),
+            Subject = new ClaimsIdentity(claims),
             Expires = DateTime.UtcNow.AddHours(3600),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey),
-                SecurityAlgorithms.HmacSha256Signature
-            )
+            SigningCredentials = credentials
         };
         var token = tokenHandler.CreateToken((tokenDesc));
         return tokenHandler.WriteToken(token);

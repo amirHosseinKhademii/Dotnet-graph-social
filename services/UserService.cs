@@ -1,5 +1,6 @@
 using hot_demo.interfaces.services;
 using hot_demo.types;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 
 namespace hot_demo.services
@@ -25,7 +26,7 @@ namespace hot_demo.services
             var user = await _userCollection.Find(item => item.Email == email).FirstOrDefaultAsync();
             var isValid = BCrypt.Net.BCrypt.Verify(password, user.Password);
             if (user == null || !isValid) return null;
-            return _jwtAuthentication.Authenticate(email);
+            return _jwtAuthentication.Authenticate(user.Id,email);
         }
     }
 }

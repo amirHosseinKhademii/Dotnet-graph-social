@@ -1,5 +1,5 @@
 namespace hot_demo.interfaces;
 
 public interface IJwtAuthentication {
-  string Authenticate (string email);
+  string Authenticate (string id,string email);
 }
