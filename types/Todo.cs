@@ -14,5 +14,5 @@ public record Todo
 
     public string? Body { get; init; }
 
-    public User? User { get; init; }
+    public string? User { get; init; }
 }
