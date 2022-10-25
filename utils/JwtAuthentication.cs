@@ -21,7 +21,7 @@ public class JwtAuthentication : IJwtAuthentication
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
         var claims = new Claim[]
         {
-            new Claim(ClaimTypes.Sid, id),
+            new Claim(ClaimTypes.NameIdentifier, id),
             new Claim(ClaimTypes.Name, email),
         };
         var tokenHandler = new JwtSecurityTokenHandler();
