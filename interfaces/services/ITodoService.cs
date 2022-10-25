@@ -4,5 +4,5 @@ namespace hot_demo.interfaces.services;
 
 public interface ITodoService
 {
-    public Task<List<Todo>> GetTodosAsync();
+    public Task<List<Todo>> GetTodosAsync(string userId);
 }

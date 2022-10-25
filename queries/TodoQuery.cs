@@ -8,5 +8,6 @@ namespace hot_demo.queries;
 [Authorize]
 public partial class Query
 {
-    public async Task<List<Todo>> GetTodos() => await _service.GetTodosAsync();
+    public async Task<List<Todo>> GetTodos(ClaimsPrincipal claimsPrincipal) =>
+        await _service.GetTodosAsync(claimsPrincipal.FindFirstValue(ClaimTypes.NameIdentifier));
 }
