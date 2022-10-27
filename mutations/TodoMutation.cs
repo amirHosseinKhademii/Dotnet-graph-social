@@ -14,4 +14,6 @@ public partial class Mutation
         var userId = claimsPrincipal.FindFirstValue(ClaimTypes.NameIdentifier);
         return await service.CreateTodosAsync(title, userId, body);
     }
+
+    public async Task<string> RemoveTodo([Service] Service service, string id) => await service.RemoveTodoAsync(id);
 }

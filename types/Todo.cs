@@ -1,6 +1,7 @@
 
 namespace hot_demo.types;
 
+using hot_demo.services;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -14,5 +15,9 @@ public record Todo
 
     public string? Body { get; init; }
 
-    public string? User { get; init; }
+    [GraphQLIgnore]
+    public string? Author { get; init; }
+
+    public async Task<User> GetUser([Service] Service service, [Parent] Todo todo) => await service.GetUserAsync(todo.Author);
+
 }
