@@ -1,7 +1,4 @@
 
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
 namespace hot_demo.types;
 
 public record Book

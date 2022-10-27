@@ -1,8 +1,3 @@
-
-using hot_demo.services;
-using hot_demo.types;
-
-
 namespace hot_demo.mutations
 {
     public partial class Mutation

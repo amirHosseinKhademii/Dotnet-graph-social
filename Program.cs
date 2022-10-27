@@ -1,12 +1,5 @@
 
 using System.Text;
-using hot_demo.interfaces;
-using hot_demo.mutations;
-using hot_demo.queries;
-using hot_demo.services;
-using hot_demo.subscriptions;
-using hot_demo.types;
-using hot_demo.utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using StackExchange.Redis;

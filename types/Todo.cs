@@ -1,10 +1,6 @@
 
 namespace hot_demo.types;
 
-using hot_demo.services;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
 public record Todo
 {
     [BsonId]

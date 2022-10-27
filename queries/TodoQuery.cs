@@ -1,9 +1,3 @@
-using System.Security.Claims;
-using hot_demo.services;
-using hot_demo.types;
-using HotChocolate.AspNetCore.Authorization;
-
-
 namespace hot_demo.queries;
 
 public partial class Query

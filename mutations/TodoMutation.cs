@@ -1,9 +1,3 @@
-using System.Security.Claims;
-using hot_demo.services;
-using hot_demo.types;
-using HotChocolate.AspNetCore.Authorization;
-using HotChocolate.Subscriptions;
-
 namespace hot_demo.mutations;
 
 [Authorize]

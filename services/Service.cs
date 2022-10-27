@@ -1,8 +1,3 @@
-using hot_demo.interfaces;
-using hot_demo.types;
-using Microsoft.Extensions.Options;
-using MongoDB.Driver;
-
 namespace hot_demo.services;
 
 public partial class Service

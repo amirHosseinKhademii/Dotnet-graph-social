@@ -8,6 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Using Include="hot_demo.interfaces" />
+    <Using Include="hot_demo.interfaces.services" />
+    <Using Include="hot_demo.mutations" />
+    <Using Include="hot_demo.queries" />
+    <Using Include="hot_demo.services" />
+    <Using Include="hot_demo.subscriptions" />
+    <Using Include="hot_demo.types" />
+    <Using Include="hot_demo.utils" />
+    <Using Include="HotChocolate.AspNetCore.Authorization" />
+    <Using Include="HotChocolate.Subscriptions" />
+    <using Include="System.Security.Claims"/>
+    <using Include="MongoDB.Driver"/>
+    <using Include="Microsoft.Extensions.Options"/>
+    <using Include="MongoDB.Bson"/>
+    <using Include="MongoDB.Bson.Serialization.Attributes"/>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="12.15.0" />
     <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="12.15.0" />
