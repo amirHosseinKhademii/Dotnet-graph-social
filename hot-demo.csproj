@@ -11,6 +11,7 @@
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="12.15.0" />
     <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="12.15.0" />
+    <PackageReference Include="HotChocolate.Subscriptions.Redis" Version="12.15.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.24.0" />
