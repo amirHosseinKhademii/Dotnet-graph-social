@@ -5,13 +5,13 @@ public record Todo
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string? Id { get; init; }
+    public string Id { get; init; }
 
     public string Title { get; init; }
 
     public string? Body { get; init; }
 
-    public bool IsCompleted { get; init; }
+    public bool IsCompleted { get; set; }
 
     public DateTime CreatedDate { get; init; }
 

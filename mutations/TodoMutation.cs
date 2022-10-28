@@ -11,6 +11,7 @@ public partial class Mutation
         await sender.SendAsync("TodoAdded", todo);
         return todo;
     }
-
     public async Task<string> RemoveTodo([Service] Service service, string id) => await service.RemoveTodoAsync(id);
+
+    public async Task<Todo> CompleteTodo([Service] Service service, string id, bool isCompleted) => await service.CompleteTodoAsync(id, isCompleted);
 }

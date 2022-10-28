@@ -13,17 +13,30 @@ public partial class Service : ITodoService
             Title = title,
             Author = userId,
             Body = body,
-            CreatedDate = new DateTime(),
+            CreatedDate = DateTime.Now,
             IsCompleted = false,
         };
         await _todosCollection.InsertOneAsync(todo);
         return todo;
+
     }
 
     public async Task<string> RemoveTodoAsync(string todoId)
     {
         await _todosCollection.DeleteOneAsync(todo => todo.Id == todoId);
         return todoId;
+    }
+
+    public async Task<Todo> CompleteTodoAsync(string id, bool isCompleted)
+    {
+        var update = Builders<Todo>.Update.Set(todo => todo.IsCompleted, isCompleted);
+        var filter = Builders<Todo>.Filter.Where(item => item.Id == id);
+        var todo = await _todosCollection.FindOneAndUpdateAsync(filter, update);
+        todo.IsCompleted = isCompleted;
+        Console.WriteLine(todo);
+
+        return todo;
+
     }
 
 }
