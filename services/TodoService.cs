@@ -1,3 +1,4 @@
+using System;
 namespace hot_demo.services;
 
 public partial class Service : ITodoService
@@ -11,7 +12,9 @@ public partial class Service : ITodoService
         {
             Title = title,
             Author = userId,
-            Body = body
+            Body = body,
+            CreatedDate = new DateTime(),
+            IsCompleted = false,
         };
         await _todosCollection.InsertOneAsync(todo);
         return todo;

@@ -11,6 +11,10 @@ public record Todo
 
     public string? Body { get; init; }
 
+    public bool IsCompleted { get; init; }
+
+    public DateTime CreatedDate { get; init; }
+
     [GraphQLIgnore]
     public string? Author { get; init; }
 
