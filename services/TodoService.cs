@@ -37,7 +37,7 @@ public partial class Service : ITodoService
 
     }
 
-    public async Task<Todo> UpdateTodoAsync(string id, string body, string title)
+    public async Task<Todo> UpdateTodoAsync(string id, string title, string body)
     {
         var updateBody = Builders<Todo>.Update.Set(todo => todo.Body, body);
         var updateTitle = Builders<Todo>.Update.Set(todo => todo.Title, title);

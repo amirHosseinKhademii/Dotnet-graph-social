@@ -15,5 +15,5 @@ public partial class Mutation
 
     public async Task<Todo> CompleteTodo([Service] Service service, string id, bool isCompleted) => await service.CompleteTodoAsync(id, isCompleted);
 
-    public async Task<Todo> UpdateTodo([Service] Service service, string id, string body, string title) => await service.UpdateTodoAsync(id, title, body);
+    public async Task<Todo> UpdateTodo([Service] Service service, string id, string title, string body) => await service.UpdateTodoAsync(id, title, body);
 }
