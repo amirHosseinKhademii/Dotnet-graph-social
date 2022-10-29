@@ -1,4 +1,4 @@
-using System;
+
 namespace hot_demo.services;
 
 public partial class Service : ITodoService
@@ -33,10 +33,19 @@ public partial class Service : ITodoService
         var filter = Builders<Todo>.Filter.Where(item => item.Id == id);
         var todo = await _todosCollection.FindOneAndUpdateAsync(filter, update);
         todo.IsCompleted = isCompleted;
-        Console.WriteLine(todo);
-
         return todo;
 
     }
 
+    public async Task<Todo> UpdateTodoAsync(string id, string body, string title)
+    {
+        var updateBody = Builders<Todo>.Update.Set(todo => todo.Body, body);
+        var updateTitle = Builders<Todo>.Update.Set(todo => todo.Title, title);
+        var update = Builders<Todo>.Update.Combine(updateBody, updateTitle);
+        var filter = Builders<Todo>.Filter.Where(item => item.Id == id);
+        var todo = await _todosCollection.FindOneAndUpdateAsync(filter, update);
+        todo.Title = title;
+        todo.Body = body;
+        return todo;
+    }
 }
