@@ -26,9 +26,6 @@ namespace hot_demo.extensions
                 };
             });
 
-
-            services.AddAuthorization();
-
             services.Configure<MongoDBSetting>(
                     config.GetSection("DataBase"))
                 .AddHttpContextAccessor()
