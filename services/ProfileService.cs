@@ -9,6 +9,19 @@ namespace hot_demo.services
             await _profileCollection.InsertOneAsync(profile);
             return profile;
         }
+
+        public async Task<Profile> UpdateProfile(string id, int? age, Gender? gender)
+        {
+            var updateAge = Builders<Profile>.Update.Set(profile => profile.Age, age);
+            var updateGender = Builders<Profile>.Update.Set(profile => profile.Gender, gender);
+            var update = Builders<Profile>.Update.Combine(updateAge, updateGender);
+            var filter = Builders<Profile>.Filter.Where(item => item.Id == id);
+            var profile = await _profileCollection.FindOneAndUpdateAsync(filter, update);
+            profile.Age = age;
+            profile.Gender = gender;
+            return profile;
+
+        }
     }
 }
 
