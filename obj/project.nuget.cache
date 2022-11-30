@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/CPoHbObHNOLuh8WGHBujmpG5mvzQh2VG1TlETMv8bnQyJE7oxmKee0uVN7ArD6AVh0refpmWH8EdvY9FHjyVA==",
+  "dgSpecHash": "GFoUN85hz/v1O9JEFYY5Qc25Pr6wapNsdDjvJKkfC2US30EamimP51g0EpzWm4c2cXgLhPk/OOai2OY2yWZFwQ==",
   "success": true,
-  "projectFilePath": "/Users/amirhosseinkhademi/Job/Private/DotNet/hot-demo/hot-demo.csproj",
+  "projectFilePath": "/Users/amirhosseinkhademi/Job/Private/DotNet/hot-social/hot-demo.csproj",
   "expectedPackageFiles": [
     "/Users/amirhosseinkhademi/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/amirhosseinkhademi/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
